@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <title>filesyutoku</title>
+
+  <!-- PT Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap" rel="stylesheet">
+
+  <link rel="icon" href="favicon.png" type="image/png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- トップ情報 -->
+<div class="top-info">
+  <div id="newyear" class="newyear"></div>
+  <div id="datetime" class="datetime"></div>
+</div>
+
+<div class="layout">
+
+  <main class="video-grid">
+
+    <div class="video-item" id="nisekeikoku1">
+      <video src="nisekeikoku.mp4" controls></video>
+      <div class="caption">2026-01-20 仮想PCで表示させてくれる偽警告</div>
+    </div>
+
+  </main>
+
+  <aside class="archive">
+    <div class="archive-title">ARCHIVE</div>
+    <a href="#nisekeikoku1">2026-01-20 仮想PCで表示させてくれる偽警告</a>
+  </aside>
+
+</div>
+
+<script>
+function updateDateTime() {
+  const now = new Date();
+
+  const year = now.getFullYear();
+  const month = String(now.getMonth() + 1).padStart(2, '0');
+  const day = String(now.getDate()).padStart(2, '0');
+  const hours = String(now.getHours()).padStart(2, '0');
+  const minutes = String(now.getMinutes()).padStart(2, '0');
+  const seconds = String(now.getSeconds()).padStart(2, '0');
+
+  document.getElementById('datetime').textContent =
+    `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
+
+  // 2027年以降は Happy New Year 表示
+  if (year >= 2027) {
+    document.getElementById('newyear').textContent =
+      `Happy New Year ${year}`;
+  } else {
+    document.getElementById('newyear').textContent = '';
+  }
+}
+
+updateDateTime();
+setInterval(updateDateTime, 1000);
+</script>
+
+</body>
+</html>

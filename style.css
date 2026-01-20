@@ -1,0 +1,101 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'PT Sans', sans-serif;
+  color: #e6e6e6;
+
+  background:
+    linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)),
+    url("../images/filesyutokubg.png") center / cover no-repeat fixed;
+}
+
+/* 全体レイアウト */
+.layout {
+  display: grid;
+  grid-template-columns: 1fr 260px;
+  min-height: 100vh;
+}
+
+/* 動画グリッド */
+.video-grid {
+  padding: 60px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 40px;
+}
+
+.video-item {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.video-item video {
+  width: 100%;
+  border-radius: 6px;
+  background: #000;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.45);
+}
+
+.caption {
+  font-size: 12px;
+  opacity: 0.65;
+}
+
+/* 右アーカイブ */
+.archive {
+  padding: 60px 30px;
+  border-left: 1px solid rgba(255,255,255,0.08);
+  font-size: 13px;
+}
+
+.archive-title {
+  font-size: 11px;
+  letter-spacing: 1px;
+  opacity: 0.4;
+  margin-bottom: 20px;
+}
+
+.archive a {
+  display: block;
+  color: #e6e6e6;
+  text-decoration: none;
+  opacity: 0.55;
+  margin-bottom: 10px;
+}
+
+.archive a:hover {
+  opacity: 1;
+}
+
+/* モバイル */
+@media (max-width: 900px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+
+  .archive {
+    border-left: none;
+    border-top: 1px solid rgba(255,255,255,0.08);
+  }
+}
+
+/* トップ年月日・時間 */
+.top-info {
+  padding: 30px 60px 0;
+}
+
+.datetime {
+  font-size: 13px;
+  opacity: 0.6;
+  letter-spacing: 0.4px;
+}
+
+.newyear {
+  font-size: 14px;
+  margin-bottom: 6px;
+  opacity: 0.8;
+}
